@@ -395,7 +395,8 @@ extension CBPinEntryView: UITextFieldDelegate {
                     entryButtons.filter({ $0.tag == buttonIndex }).forEach { (button: UIButton) in
                         button.layer.borderColor = entryDefaultBorderColour.cgColor
                         if !isSecure {
-                            button.setTitle(string[i], for: .normal)
+                            let char = Array(string)[i]
+                            button.setTitle(String(char), for: .normal)
                         } else {
                             button.setTitle(secureCharacter, for: .normal)
                         }
