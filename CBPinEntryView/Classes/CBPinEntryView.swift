@@ -129,6 +129,13 @@ public protocol CBPinEntryViewDelegate: class {
             commonInit()
         }
     }
+    
+    @IBInspectable open var autocapitalizationType: Int = 0 {
+        didSet {
+            commonInit()
+        }
+    }
+    
 
     private var stackView: UIStackView?
     private var textField: CBEntryViewTextField!
@@ -205,6 +212,7 @@ public protocol CBPinEntryViewDelegate: class {
         textField.backgroundColor = .clear
         textField.textColor = .clear
         textField.tintColor = .clear
+        textField.autocapitalizationType = UITextAutocapitalizationType(rawValue: autocapitalizationType) ?? .none
     }
 
     private func createButtons() {
